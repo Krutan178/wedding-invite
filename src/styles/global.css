@@ -379,6 +379,33 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
   color: var(--gold-deep);
 }
 
+/* cute polaroid mat for the lead photo */
+.photo-wrap.polaroid img {
+  padding: 12px 12px 46px;
+  background: #fffdf6;
+  border-radius: 8px;
+  box-shadow: 0 22px 46px rgba(74,59,36,.26), 0 6px 14px rgba(74,59,36,.12);
+  object-fit: cover;
+}
+.photo-wrap.polaroid figcaption {
+  margin-top: -38px;
+  color: var(--ink);
+  font-size: 1.35rem;
+}
+.photo-wrap.polaroid::after {
+  content: "❤";
+  position: absolute;
+  top: -14px; right: -12px;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, #e8d9a8, var(--gold) 45%, var(--gold-deep));
+  color: #fffdf6;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 18px rgba(168,132,44,.45);
+  transform: rotate(10deg);
+}
+
 /* ============================================================
    STORY TIMELINE
    ============================================================ */

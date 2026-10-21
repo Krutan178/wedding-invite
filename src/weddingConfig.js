@@ -47,7 +47,7 @@ export const WEDDING = {
   ],
 
   photos: [
-    { src: "assets/photo1.svg", caption: "where it all began", tilt: "left" },
+    { src: "assets/couple.jpg", caption: "A new chapter began — 16·08·2026", tilt: "left", polaroid: true },
     { src: "assets/photo2.svg", caption: "the yes that mattered", tilt: "right" },
     { src: "assets/photo3.svg", caption: "family & forever", tilt: "left" },
     { src: "assets/photo4.svg", caption: "every festival, together", tilt: "right" },

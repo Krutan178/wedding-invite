@@ -18,7 +18,7 @@ export default function Gallery() {
         {WEDDING.photos.map((photo, i) => (
           <Reveal
             as="figure"
-            className={`photo-wrap cur-${photo.tilt}`}
+            className={`photo-wrap cur-${photo.tilt} ${photo.polaroid ? "polaroid" : ""}`}
             key={i}
           >
             <ClipRevealImg src={photo.src} i={i} />
