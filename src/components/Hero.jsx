@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Reveal from "./Reveal";
+import { WEDDING } from "../weddingConfig";
 
 /** Hero with scroll-linked parallax: names slide toward each other. */
 export default function Hero() {
@@ -56,10 +57,10 @@ export default function Hero() {
         <Reveal as="p" className="hero-together" delay={120}>
           Together with our families, we invite you to celebrate
         </Reveal>
-        <h1 className="hero-names" aria-label="Aarav and Diya">
-          <span className="name" ref={name1}>Aarav</span>
+        <h1 className="hero-names" aria-label={`${WEDDING.groom} and ${WEDDING.bride}`}>
+          <span className="name" ref={name1}>{WEDDING.groom}</span>
           <span className="amp" ref={amp}>&amp;</span>
-          <span className="name" ref={name3}>Diya</span>
+          <span className="name" ref={name3}>{WEDDING.bride}</span>
         </h1>
         <Reveal as="p" className="hero-line" delay={160}>
           <span className="rule" /> Save the date <span className="rule" />

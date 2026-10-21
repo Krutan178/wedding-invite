@@ -3,15 +3,15 @@
    ============================================================ */
 
 export const WEDDING = {
-  groom: "Aarav",
-  bride: "Diya",
-  hashtag: "#AaravWedsDiya",
+  groom: "Rushikesh",
+  bride: "Ankita",
+  hashtag: "#RushikeshWedsAnkita",
 
-  // countdown + calendar target
-  dateISO: "2027-02-14T10:30:00+05:30",
-  dateLong: "Sunday, 14 February 2027",
-  dateDay: "Sunday",
-  dateMain: "14 February 2027",
+  // countdown + calendar target — Saturday, 5 December 2026
+  dateISO: "2026-12-05T10:30:00+05:30",
+  dateLong: "Saturday, 5 December 2026",
+  dateDay: "Saturday",
+  dateMain: "5 December 2026",
   timeLong: "10:30 in the morning",
 
   venue: {
@@ -22,21 +22,21 @@ export const WEDDING = {
 
   // RSVP — country code + number, no "+"
   whatsapp: "919999999999",
-  rsvpDeadline: "10 January 2027",
+  rsvpDeadline: "20 November 2026",
 
   // story timeline
   timeline: [
     { date: "Summer 2021", title: "First Hello", text: "A chance meeting at a friend’s wedding — a borrowed umbrella, a shared laugh, and a conversation that never quite ended." },
-    { date: "Spring 2023", title: "The Promise", text: "At sunrise on Marine Drive, over metro chai, the question was asked — and joyfully answered with a yes." },
-    { date: "14 February 2027", title: "Forever Begins", text: "With the blessings of our families, we begin a lifetime together — and we would love for you to be there." },
+    { date: "Spring 2024", title: "The Promise", text: "At sunrise by the riverside, over cutting chai, the question was asked — and joyfully answered with a yes." },
+    { date: "5 December 2026", title: "Forever Begins", text: "With the blessings of our families, we begin a lifetime together — and we would love for you to be there." },
   ],
 
   // celebration events
   events: [
-    { icon: "🌿", name: "Mehendi", when: "Fri · 12 February · 4:00 PM", where: "The Palace Courtyard", note: "Henna, folk songs & chai" },
-    { icon: "🌼", name: "Haldi", when: "Sat · 13 February · 10:00 AM", where: "Garden of Marigolds", note: "Wear what turmeric won't ruin!" },
-    { icon: "🎶", name: "Sangeet", when: "Sat · 13 February · 7:00 PM", where: "Jashn Hall", note: "Dance like no one is filming" },
-    { icon: "💍", name: "The Wedding", when: "Sun · 14 February · 10:30 AM", where: "Vivah Mandap", note: "Varmala at 11:30 · lunch after" },
+    { icon: "🌿", name: "Mehendi", when: "Thu · 3 December · 4:00 PM", where: "The Palace Courtyard", note: "Henna, folk songs & chai" },
+    { icon: "🌼", name: "Haldi", when: "Fri · 4 December · 10:00 AM", where: "Garden of Marigolds", note: "Wear what turmeric won't ruin!" },
+    { icon: "🎶", name: "Sangeet", when: "Fri · 4 December · 7:00 PM", where: "Jashn Hall", note: "Dance like no one is filming" },
+    { icon: "💍", name: "The Wedding", when: "Sat · 5 December · 10:30 AM", where: "Vivah Mandap", note: "Varmala at 11:30 · lunch after" },
   ],
 
   info: [

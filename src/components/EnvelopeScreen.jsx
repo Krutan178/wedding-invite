@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { guest, track } from "../lib/tracking";
+import { WEDDING } from "../weddingConfig";
 
 export default function EnvelopeScreen({ opened, onOpen }) {
   const [opening, setOpening] = useState(false);
+
+  /* personalized browser tab title */
+  document.title = guest
+    ? `${guest} · ${WEDDING.groom} & ${WEDDING.bride} — Wedding Invitation`
+    : `${WEDDING.groom} & ${WEDDING.bride} — Wedding Invitation`;
 
   const handleOpen = () => {
     if (opening) return;
@@ -32,7 +38,7 @@ export default function EnvelopeScreen({ opened, onOpen }) {
           )}
           <p className="env-to">You are cordially invited</p>
           <p className="env-names">
-            Aarav <em>&</em> Diya
+            {WEDDING.groom} <em>&amp;</em> {WEDDING.bride}
           </p>
         </div>
         <button className="open-btn" type="button" onClick={handleOpen}>

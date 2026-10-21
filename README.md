@@ -1,4 +1,4 @@
-# 💛 Aarav & Diya — Wedding Invitation (React + Vite)
+# 💛 Rushikesh & Ankita — Wedding Invitation (React + Vite)
 
 A full-fledged React app: envelope opening, parallax names, curtain photo
 reveals, a scratchable golden date card with party-popper confetti, venue,
