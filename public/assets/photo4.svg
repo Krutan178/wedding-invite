@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="600" viewBox="0 0 480 600">
+  <defs>
+    <linearGradient id="bg" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf9f0"/>
+      <stop offset="1" stop-color="#ecd9b4"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="600" fill="url(#bg)"/>
+  <g stroke="#c2a14d" fill="none" stroke-width="1.8" opacity="0.9">
+    <circle cx="240" cy="240" r="70"/>
+    <circle cx="240" cy="240" r="46" stroke-dasharray="6 5"/>
+    <path d="M240 60 q-40 60 0 110 q40 -50 0 -110" fill="#c2a14d" opacity="0.25"/>
+    <path d="M240 420 q40 -60 0 -110 q-40 50 0 110" fill="#8a3324" opacity="0.15"/>
+  </g>
+  <text x="240" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#8a3324">❥</text>
+  <text x="240" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="6" fill="#a8842c">PHOTO 4</text>
+  <text x="240" y="506" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="3" fill="#7a6a4f">REPLACE assets/photo4.svg</text>
+</svg>

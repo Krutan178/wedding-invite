@@ -18,16 +18,16 @@ export default function Hero() {
         const vh = window.innerHeight;
         const capped = Math.min(y, vh);
 
-        /* drift layers at different speeds for depth */
-        if (hint.current) hint.current.style.transform = `translateY(${-capped * 0.5}px)`;
-        if (amp.current) amp.current.style.transform = `translateY(${y * 0.12}px)`;
+        /* gentle upward drift — elements never drift into each other */
+        if (hint.current) hint.current.style.transform = `translateY(${-capped * 0.1}px)`;
+        if (amp.current) amp.current.style.transform = `translateY(${-capped * 0.06}px)`;
 
         /* names glide toward each other as you start scrolling */
         const slide = Math.min(y / (vh * 0.55), 1) * 70;
         if (name1.current) name1.current.style.transform =
-          `translateX(${-slide}px) translateY(${y * 0.25}px)`;
+          `translateX(${-slide}px) translateY(${-capped * 0.14}px)`;
         if (name3.current) name3.current.style.transform =
-          `translateX(${slide}px) translateY(${y * 0.25}px)`;
+          `translateX(${slide}px) translateY(${-capped * 0.14}px)`;
         raf = null;
       });
     };

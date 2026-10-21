@@ -424,7 +424,16 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
 #scratch-canvas.scratching { cursor: grabbing; }
 #scratch-canvas.done { pointer-events: none; transition: opacity .7s ease; opacity: 0; }
 
-.party-btns { margin-top: 34px; }
+.party-btns { margin-top: 30px; }
+
+.scratch-date-caption {
+  margin-top: 18px;
+  font-family: "Cinzel", serif;
+  font-size: .82rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
 
 /* ============================================================
    VENUE
@@ -638,9 +647,9 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
 /* ---------- wedding events grid ---------- */
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 920px;
+  grid-template-columns: repeat(2, minmax(230px, 1fr));
+  gap: 18px 22px;
+  max-width: 680px;
   margin: 34px auto 0;
 }
 .event-card {
@@ -761,6 +770,7 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
   .scratch-card, .hero-names { user-select: none; -webkit-user-select: none; }
 
   .party-btns { margin-top: 26px; }
+  .scratch-date-caption { font-size: .72rem; letter-spacing: .16em; }
   .gold-btn { padding: 12px 24px; font-size: .82rem; }
 
   .venue-card { padding: 34px 16px 26px; margin: 12px auto 0; }

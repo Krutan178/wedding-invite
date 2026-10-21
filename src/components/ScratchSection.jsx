@@ -21,6 +21,10 @@ export default function ScratchSection() {
 
       <ScratchCard />
 
+      <p className="scratch-date-caption">
+        ✦ {WEDDING.dateLong} · {WEDDING.timeLong} ✦
+      </p>
+
       <Reveal as="div" className="party-btns">
         <PopperButton />
       </Reveal>
