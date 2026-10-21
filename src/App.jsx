@@ -48,8 +48,8 @@ export default function App() {
         <Hero />
         <Gallery />
         <Story />
-        <Events />
         <ScratchSection />
+        <Events />
         <Venue />
         <Info />
         <CountdownRsvp />
