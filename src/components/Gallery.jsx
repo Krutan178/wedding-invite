@@ -16,14 +16,14 @@ export default function Gallery() {
 
       <div className="photo-strip">
         {WEDDING.photos.map((photo, i) => (
-          <figure
+          <Reveal
+            as="figure"
+            className={`photo-wrap cur-${photo.tilt}`}
             key={i}
-            className={`photo-wrap cur-${photo.tilt} reveal`}
-            data-drift
           >
             <ClipRevealImg src={photo.src} i={i} />
             <figcaption>{photo.caption}</figcaption>
-          </figure>
+          </Reveal>
         ))}
       </div>
     </section>

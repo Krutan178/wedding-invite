@@ -35,12 +35,14 @@ export default function Venue() {
           📍 Get Directions
         </a>
         <div className="venue-map reveal in">
-          <div className="map-mock" aria-hidden="true">
-            <span className="map-road road-1" />
-            <span className="map-road road-2" />
-            <span className="map-road road-3" />
-            <span className="map-heart">❤</span>
-          </div>
+          <iframe
+            className="venue-iframe"
+            title="Venue location on Google Maps"
+            src={`https://www.google.com/maps?q=${WEDDING.venue.coords.lat},${WEDDING.venue.coords.lng}&z=16&output=embed`}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </Reveal>
     </section>

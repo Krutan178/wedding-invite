@@ -18,6 +18,7 @@ export const WEDDING = {
     name: "Sakhubai Bhaskar Mangal Karyalay",
     addressLines: ["Naigaon, Vasai-Virar,", "Maharashtra — India"],
     mapsQuery: "Sakhubai+Bhaskar+Mangal+Karyalay",
+    coords: { lat: 19.4414638, lng: 72.823973 },
   },
 
   // RSVP — country code + number, no "+"
