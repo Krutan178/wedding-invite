@@ -264,7 +264,30 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
 .mandala--small { width: 90vmin; height: 90vmin; bottom: -38vmin; left: -32vmin; animation-direction: reverse; animation-duration: 80s; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-.hero-inner { position: relative; text-align: center; padding: 0 20px; }
+.hero-inner { position: relative; text-align: center; padding: 0 20px; z-index: 2; }
+
+/* cinematic photo slideshow behind the hero */
+.hero-slider { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.hero-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 2.2s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.09);
+  filter: sepia(12%) saturate(1.02);
+}
+.hero-slide.active img { animation: kenburns 9s ease-out forwards; }
+@keyframes kenburns { from { transform: scale(1.09); } to { transform: scale(1); } }
+.hero-veil {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(250,246,236,.55) 0%, rgba(250,246,236,.86) 58%),
+    linear-gradient(180deg, rgba(250,246,236,.95) 0%, rgba(250,246,236,.72) 40%, rgba(250,246,236,.92) 100%);
+}
 
 .hero-ganesh { font-size: .95rem; color: var(--gold-deep); letter-spacing: .12em; }
 
@@ -528,7 +551,28 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
 .footer-names em { font-style: normal; -webkit-text-fill-color: var(--gold); }
 .footer-love { color: var(--ink-soft); font-style: italic; }
 
-/* ---------- ornate double gold frames (Zareqia-style corner accents) ---------- */
+/* ghost secondary button — pairs with .gold-btn */
+.ghost-btn {
+  display: inline-block;
+  margin: 18px auto 0;
+  padding: 13px 32px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold-deep);
+  font-family: "Cinzel", serif;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease;
+  margin-left: 10px;
+}
+.ghost-btn:hover { background: rgba(194,161,77,.12); transform: translateY(-3px); }
+.ghost-btn:first-of-type { margin-left: 0; }
+
+/* ornate double gold frames (Zareqia-style corner accents) ---------- */
 .venue-card, .rsvp-card, .info-card, .event-card, .scratch-card {
   outline: 1px solid rgba(194,161,77,.4);
   outline-offset: 5px;
@@ -738,7 +782,7 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
 
 /* ---------- readability: petals never block clicks ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .toran i, .lantern, .lantern b, .event-card .ev-icon, .map-heart, .hero-hint .chev { animation: none !important; }
+  .toran i, .lantern, .lantern b, .event-card .ev-icon, .map-heart, .hero-hint .chev, .hero-slide img { animation: none !important; }
 }
 
 /* ---------- small screens ---------- */

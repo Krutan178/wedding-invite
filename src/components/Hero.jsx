@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Reveal from "./Reveal";
+import HeroSlider from "./HeroSlider";
 import { WEDDING } from "../weddingConfig";
 
 /** Hero with scroll-linked parallax: names slide toward each other. */
@@ -41,6 +42,7 @@ export default function Hero() {
 
   return (
     <header id="home" className="hero">
+      <HeroSlider />
       <div className="mandala mandala--big" aria-hidden="true" />
       <div className="mandala mandala--small" aria-hidden="true" />
 

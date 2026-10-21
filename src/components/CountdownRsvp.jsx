@@ -12,6 +12,29 @@ const unitsOf = (diff) => [
   ["secs", pad(Math.floor((diff % 60000) / 1000))],
 ];
 
+/* downloadable .ics so guests can save the date with one tap */
+function buildIcsHref() {
+  const start = new Date(WEDDING.dateISO);
+  const end = new Date(start.getTime() + 3 * 3600 * 1000); // ceremony + lunch
+  const fmt = (d) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//wedding-invite//EN",
+    "BEGIN:VEVENT",
+    `UID:${WEDDING.hashtag}@invite`,
+    `DTSTAMP:${fmt(new Date())}`,
+    `DTSTART:${fmt(start)}`,
+    `DTEND:${fmt(end)}`,
+    `SUMMARY:${WEDDING.groom} & ${WEDDING.bride} Wedding`,
+    `LOCATION:${WEDDING.venue.name}, ${WEDDING.venue.addressLines.join(" ")}`,
+    `DESCRIPTION:${WEDDING.dateLong} · ${WEDDING.timeLong}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+  return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+}
+
 export default function CountdownRsvp() {
   useSectionView("rsvp");
 
@@ -78,6 +101,14 @@ export default function CountdownRsvp() {
           onClick={() => track("rsvp_click")}
         >
           💬 RSVP on WhatsApp
+        </a>
+        <a
+          className="ghost-btn"
+          href={buildIcsHref()}
+          download={`${WEDDING.groom}-${WEDDING.bride}-wedding.ics`}
+          onClick={() => track("calendar_download")}
+        >
+          📅 Add to Calendar
         </a>
       </Reveal>
     </section>
