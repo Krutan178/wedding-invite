@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#faf6ec" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<title>Aarav &amp; Diya — Wedding Invitation</title>
+<meta name="description" content="Aarav & Diya are getting married! Scratch the card to reveal the date, find the venue, and RSVP." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- fixed effects layer -->
+<div id="scroll-progress" aria-hidden="true"></div>
+<canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+<!-- music toggle -->
+<audio id="bg-music" loop preload="none" src="assets/music.mp3"></audio>
+<button id="music-btn" title="Play / pause music" aria-label="Toggle background music">♪</button>
+
+<!-- ======================= ENVELOPE OPENING ======================= -->
+<div id="envelope-screen" aria-label="Open invitation">
+  <div class="envelope-wrap">
+    <div class="envelope-flap"></div>
+    <div class="envelope-pocket"></div>
+    <div class="envelope-card">
+      <span class="mini-mandala">✦</span>
+      <p class="env-dear">For <span id="env-guest">you</span>,</p>
+      <p class="env-to">You are cordially invited</p>
+      <p class="env-names">Aarav <em>&</em> Diya</p>
+    </div>
+    <button id="open-btn" class="open-btn" type="button">
+      <span class="open-btn-inner">Open&nbsp;Invitation</span>
+    </button>
+  </div>
+  <p class="tap-hint">tap to open ✦</p>
+</div>
+
+<!-- ======================= HERO / NAMES ======================= -->
+<header id="home" class="hero">
+  <div class="mandala mandala--big" aria-hidden="true"></div>
+  <div class="mandala mandala--small" aria-hidden="true"></div>
+
+  <!-- hanging marigold toran -->
+  <div class="toran" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <!-- hanging lanterns -->
+  <div class="lantern lantern--left" aria-hidden="true"><i></i><b></b><u></u></div>
+  <div class="lantern lantern--right" aria-hidden="true"><i></i><b></b><u></u></div>
+
+  <div class="hero-inner">
+    <p class="hero-ganesh reveal">✦ श्री गणेशाय नमः ✦</p>
+    <p class="hero-together reveal">Together with our families, we invite you to celebrate</p>
+    <h1 class="hero-names">
+      <span class="name reveal" data-parallax="0.25">Aarav</span>
+      <span class="amp reveal" data-parallax="0.12">&amp;</span>
+      <span class="name reveal" data-parallax="0.25">Diya</span>
+    </h1>
+    <p class="hero-line reveal">
+      <span class="rule"></span> Save the date <span class="rule"></span>
+    </p>
+    <p class="hero-hint" data-parallax="0.5">scroll to our story <span class="chev">⌄</span><span class="chev">⌄</span></p>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================= PHOTO GALLERY (parallax reveal) ======================= -->
+<section id="moments" class="section gallery">
+  <div class="section-head">
+    <span class="kicker reveal">Cherished</span>
+    <h2 class="title reveal">Moments</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+
+  <div class="photo-strip">
+    <figure class="photo-wrap cur-left reveal">
+      <img class="clip-reveal" src="assets/photo1.svg" alt="Couple photo" loading="lazy" />
+      <figcaption>where it all began</figcaption>
+    </figure>
+    <figure class="photo-wrap cur-right reveal">
+      <img class="clip-reveal" src="assets/photo2.svg" alt="Engagement photo" loading="lazy" />
+      <figcaption>the yes that mattered</figcaption>
+    </figure>
+    <figure class="photo-wrap cur-left reveal">
+      <img class="clip-reveal" src="assets/photo3.svg" alt="Family photo" loading="lazy" />
+      <figcaption>family &amp; forever</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= OUR STORY TIMELINE ======================= -->
+<section id="story" class="section story">
+  <div class="section-head">
+    <span class="kicker reveal">How we got here</span>
+    <h2 class="title reveal">Our Story</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+
+  <div class="timeline">
+    <article class="tl-item reveal">
+      <p class="tl-date">Summer 2021</p>
+      <h3>First Hello</h3>
+      <p>A chance meeting at a friend’s wedding — a borrowed umbrella, a shared laugh, and a conversation that never quite ended.</p>
+    </article>
+    <article class="tl-item reveal">
+      <p class="tl-date">Spring 2023</p>
+      <h3>The Promise</h3>
+      <p>At sunrise on Marine Drive, over metro chai, the question was asked — and joyfully answered with a yes.</p>
+    </article>
+    <article class="tl-item reveal">
+      <p class="tl-date">14 February 2027</p>
+      <h3>Forever Begins</h3>
+      <p>With the blessings of our families, we begin a lifetime together — and we would love for you to be there.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= WEDDING EVENTS ======================= -->
+<section id="events" class="section events">
+  <div class="section-head">
+    <span class="kicker reveal">Four days of joy</span>
+    <h2 class="title reveal">The Celebrations</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+
+  <div class="event-grid">
+    <article class="event-card reveal">
+      <span class="ev-icon">🌿</span>
+      <h3>Mehendi</h3>
+      <p class="ev-when">Fri · 12 February · 4:00 PM</p>
+      <p class="ev-where">The Palace Courtyard</p>
+      <p class="ev-note">Henna, folk songs &amp; chai</p>
+    </article>
+    <article class="event-card reveal">
+      <span class="ev-icon">🌼</span>
+      <h3>Haldi</h3>
+      <p class="ev-when">Sat · 13 February · 10:00 AM</p>
+      <p class="ev-where">Garden of Marigolds</p>
+      <p class="ev-note">Wear what turmeric won't ruin!</p>
+    </article>
+    <article class="event-card reveal">
+      <span class="ev-icon">🎶</span>
+      <h3>Sangeet</h3>
+      <p class="ev-when">Sat · 13 February · 7:00 PM</p>
+      <p class="ev-where">Jashn Hall</p>
+      <p class="ev-note">Dance like no one is filming</p>
+    </article>
+    <article class="event-card reveal">
+      <span class="ev-icon">💍</span>
+      <h3>The Wedding</h3>
+      <p class="ev-when">Sun · 14 February · 10:30 AM</p>
+      <p class="ev-where">Vivah Mandap</p>
+      <p class="ev-note">Varmala at 11:30 · lunch after</p>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= SCRATCHABLE WEDDING DATE ======================= -->
+<section id="date" class="section scratch-section">
+  <div class="section-head">
+    <span class="kicker reveal">A little mystery</span>
+    <h2 class="title reveal">Scratch to Reveal the Date</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+  <p class="scratch-sub reveal">Use your finger or mouse to scratch away the golden foil ✨</p>
+
+  <div class="scratch-wrap reveal">
+    <div class="scratch-card">
+      <div class="scratch-reward">
+        <p class="reveal-kicker">mark your calendars</p>
+        <p class="reveal-date">Sunday</p>
+        <p class="reveal-date" id="scratch-day">14 February 2027</p>
+        <p class="reveal-time">10:30 in the morning</p>
+        <span class="orn">❋ ❋ ❋</span>
+      </div>
+      <canvas id="scratch-canvas" aria-label="Scratch here to reveal the wedding date"></canvas>
+    </div>
+  </div>
+
+  <div class="party-btns reveal">
+    <button id="popper-btn" class="gold-btn" type="button">🎉 Pull the party popper!</button>
+  </div>
+</section>
+
+<!-- ======================= VENUE ======================= -->
+<section id="venue" class="section venue">
+  <div class="section-head">
+    <span class="kicker reveal">Where the magic happens</span>
+    <h2 class="title reveal">The Venue</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+
+  <div class="venue-card reveal">
+    <div class="venue-pin" aria-hidden="true">
+      <span class="pin-head"></span><span class="pin-tail"></span>
+    </div>
+    <h3 class="venue-name">The Grand Utsav Palace</h3>
+    <p class="venue-addr">Lotus Gardens, Heritage Road,<br />Jaipur, Rajasthan — 302001</p>
+    <span class="orn">❋</span>
+    <a class="gold-btn" id="maps-link" href="https://maps.google.com/?q=The+Grand+Utsav+Palace+Jaipur" target="_blank" rel="noopener">📍 Get Directions</a>
+    <div class="venue-map reveal">
+      <div class="map-mock" aria-hidden="true">
+        <span class="map-road road-1"></span>
+        <span class="map-road road-2"></span>
+        <span class="map-road road-3"></span>
+        <span class="map-heart">❤</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= COUNTDOWN + RSVP ======================= -->
+<section id="rsvp" class="section rsvp">
+  <div class="section-head">
+    <span class="kicker reveal">The wait begins</span>
+    <h2 class="title reveal">Countdown to Forever</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+
+  <div class="countdown reveal" id="countdown" aria-live="polite">
+    <div class="cd-box"><span id="cd-days">–</span><small>days</small></div>
+    <div class="cd-box"><span id="cd-hours">–</span><small>hours</small></div>
+    <div class="cd-box"><span id="cd-mins">–</span><small>minutes</small></div>
+    <div class="cd-box"><span id="cd-secs">–</span><small>seconds</small></div>
+  </div>
+  <p class="countdown-done reveal" id="countdown-done" hidden>🎉 It’s the big day! 🎉</p>
+
+  <div class="rsvp-card reveal">
+    <h3>Will you grace our celebration?</h3>
+    <p>Kindly confirm by <strong>10 January 2027</strong> so we can save you a seat, some sweetness and a dance.</p>
+    <a class="gold-btn" id="rsvp-link" href="https://wa.me/919999999999?text=Yay!%20Count%20me%20in%20for%20Aarav%20%26%20Diya's%20wedding!%20%F0%9F%92%9B" target="_blank" rel="noopener">💬 RSVP on WhatsApp</a>
+  </div>
+</section>
+
+<!-- ======================= GOOD TO KNOW ======================= -->
+<section id="info" class="section info">
+  <div class="section-head">
+    <span class="kicker reveal">Before you arrive</span>
+    <h2 class="title reveal">Good to Know</h2>
+    <span class="divider reveal">✦‿✦</span>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card reveal">
+      <span class="ev-icon">👘</span>
+      <h3>Dress Code</h3>
+      <p>Traditional Indian — sarees, kurtas &amp; jewel tones welcome. Gold accents encouraged, comfort guaranteed.</p>
+    </div>
+    <div class="info-card reveal">
+      <span class="ev-icon">💌</span>
+      <h3>Gifts</h3>
+      <p>Your blessings are the only gift we seek. Your presence completes our celebration.</p>
+    </div>
+    <div class="info-card reveal">
+      <span class="ev-icon">🍛</span>
+      <h3>The Feast</h3>
+      <p>Satvik lunch right after the pheras — paneer, puran poli, and enough chutney for everyone.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span class="orn">❋ ❋ ❋</span>
+  <p class="footer-names">Aarav <em>&</em> Diya</p>
+  <p class="footer-hashtag">#AaravWedsDiya — share your joy 📸</p>
+  <p class="footer-love">with love, our families &amp; us</p>
+</footer>
+
+<!-- Confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="js/tracking.js"></script>
+<script src="js/main.js"></script>
+<script src="js/scratch.js"></script>
+<script src="js/effects.js"></script>
+</body>
+</html>

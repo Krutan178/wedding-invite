@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invite Link Builder — Aarav &amp; Diya</title>
+<style>
+  :root { --gold:#c2a14d; --gold-deep:#a8842c; --maroon:#8a3324; --ink:#4a3b24; --ivory:#faf6ec; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, serif;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(194,161,77,.12), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(194,161,77,.12), transparent 40%),
+      var(--ivory);
+    color: var(--ink);
+    padding: 40px 20px 80px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-family: "Segoe Script", Georgia; color: var(--maroon); font-size: 2rem; text-align: center; }
+  .sub { text-align: center; color: #7a6a4f; margin: 8px 0 30px; font-style: italic; }
+  .card {
+    background: #fffdf6; border: 1px solid rgba(194,161,77,.5); border-radius: 14px;
+    padding: 24px; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(74,59,36,.12);
+  }
+  label { display: block; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-deep); margin: 14px 0 5px; font-weight: bold; }
+  input, textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid #d8c48d; border-radius: 8px;
+    font: inherit; font-size: 1rem; background: var(--ivory); color: var(--ink);
+  }
+  textarea { height: 110px; resize: vertical; }
+  .hint { font-size: .8rem; color: #7a6a4f; margin-top: 3px; }
+  button {
+    margin-top: 16px; padding: 12px 28px; border: none; border-radius: 999px;
+    background: linear-gradient(135deg, #e8d9a8, var(--gold) 45%, var(--gold-deep));
+    color: #fff; font-weight: bold; letter-spacing: .1em; text-transform: uppercase;
+    cursor: pointer; box-shadow: 0 6px 16px rgba(168,132,44,.4);
+  }
+  button:active { transform: scale(.96); }
+  .out {
+    margin-top: 18px; overflow-x: auto; background: #f3ead7; border: 1px dashed #c2a14d;
+    border-radius: 8px; padding: 12px 14px; font: 0.9rem/1.5 Consolas, monospace; word-break: break-all;
+  }
+  .out-row { padding: 3px 0; }
+  .copydata { white-space: pre-wrap; }
+  .back { display: block; text-align: center; margin-top: 30px; color: var(--maroon); }
+  .toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: var(--maroon); color: #fff; padding: 10px 22px; border-radius: 999px;
+    transition: transform .3s ease; font-size: .9rem;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Invite Link Builder</h1>
+  <p class="sub">make a personalized, tracked link for every family 👇</p>
+
+  <div class="card">
+    <label for="base">Your website address</label>
+    <input id="base" type="text" placeholder="https://your-site.com" />
+    <p class="hint">Where you'll host the invite (GitHub Pages, Netlify…). Local testing works too: leave blank to use this folder's index.html</p>
+
+    <label for="guest">Guest / family name</label>
+    <input id="guest" type="text" placeholder="e.g. The Sharma Family" />
+    <p class="hint">Shown in the envelope greeting: "For The Sharma Family," — and tracked in your history</p>
+
+    <label for="source">utm_source</label>
+    <input id="source" type="text" value="whatsapp" />
+    <p class="hint">Where you're sending from: whatsapp, instagram, email, sms…</p>
+
+    <label for="campaign">utm_campaign</label>
+    <input id="campaign" type="text" value="2027-wedding-invite" />
+    <p class="hint">Batch of invites: maybe one per side of family, or per event</p>
+
+    <button id="build">✨ Build link</button>
+
+    <div id="out" class="out" hidden></div>
+    <button id="copy" hidden>📋 Copy</button>
+  </div>
+
+  <div class="card">
+    <label for="multi">Bulk: one guest name per line</label>
+    <textarea id="multi" placeholder="Sharma Family&#10;Diya's Office Colleagues&#10;College Gang"></textarea>
+    <button id="bulk">⚡ Generate all</button>
+    <div id="out-multi" class="out copydata" hidden></div>
+    <p class="hint" style="margin-top:8px">Each line becomes one link. Paste links into per-guest WhatsApp chats — done.</p>
+  </div>
+
+  <a class="back" href="javascript:history.back()">← back to the invitation</a>
+</div>
+<div id="toast" class="toast">Copied!</div>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  let currentLink = "";
+
+  function buildUrl(guest, source, campaign) {
+    let base = $("base").value.trim();
+    if (!base) base = location.href.split(/[?#]/)[0].replace("link-builder.html", "index.html");
+    if (!/https?:\/\//.test(base)) base = "https://" + base;
+    const p = new URLSearchParams();
+    if (guest) p.set("guest", guest);
+    p.set("utm_source", source || "whatsapp");
+    p.set("utm_medium", "invite");
+    if (campaign) p.set("utm_campaign", campaign);
+    return base + "?" + p.toString();
+  }
+
+  $("build").addEventListener("click", () => {
+    const link = buildUrl($("guest").value.trim(), $("source").value.trim(), $("campaign").value.trim());
+    currentLink = link;
+    $("out").textContent = link;
+    $("out").hidden = false;
+    $("copy").hidden = false;
+    // open a quick preview
+    if ($("guest").value.trim()) {
+      const preview = link + "&_preview=1";
+      $("out").innerHTML = "";
+      const a = document.createElement("a");
+      a.href = link; a.textContent = link; a.target = "_blank";
+      a.style.color = "#8a3324";
+      $("out").appendChild(a);
+      const t = document.createElement("div");
+      t.className = "out-row";
+      t.textContent = "↑ click to preview with this guest's name";
+      $("out").appendChild(t);
+    }
+  });
+
+  $("copy").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(currentLink); showToast("Link copied!"); }
+    catch { // fallback copy
+      const ta = document.createElement("textarea");
+      ta.value = currentLink; document.body.appendChild(ta);
+      ta.select(); document.execCommand("copy"); ta.remove();
+      showToast("Link copied!");
+    }
+  });
+
+  $("bulk").addEventListener("click", () => {
+    const names = $("multi").value.split("\n").map(s => s.trim()).filter(Boolean);
+    if (!names.length) return alert("Type at least one guest name.");
+    $("out-multi").textContent = names.map(n =>
+      `${n}\n${buildUrl(n, $("source").value.trim(), $("campaign").value.trim())}`
+    ).join("\n\n");
+    $("out-multi").hidden = false;
+  });
+
+  let toastTimer;
+  function showToast(msg) {
+    $("toast").textContent = msg;
+    $("toast").classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => $("toast").classList.remove("show"), 1800);
+  }
+})();
+</script>
+</body>
+</html>
