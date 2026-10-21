@@ -15,9 +15,9 @@ export const WEDDING = {
   timeLong: "10:30 in the morning",
 
   venue: {
-    name: "The Grand Utsav Palace",
-    addressLines: ["Lotus Gardens, Heritage Road,", "Jaipur, Rajasthan — 302001"],
-    mapsQuery: "The+Grand+Utsav+Palace+Jaipur",
+    name: "Sakhubai Bhaskar Mangal Karyalay",
+    addressLines: ["Naigaon, Vasai-Virar,", "Maharashtra — India"],
+    mapsQuery: "Sakhubai+Bhaskar+Mangal+Karyalay",
   },
 
   // RSVP — country code + number, no "+"
@@ -55,7 +55,7 @@ export const WEDDING = {
   ],
 };
 
-export const mapsUrl = `https://maps.google.com/?q=${WEDDING.venue.mapsQuery}`;
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${WEDDING.venue.mapsQuery}`;
 
 export const rsvpUrl =
   `https://wa.me/${WEDDING.whatsapp}?text=` +
