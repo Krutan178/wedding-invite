@@ -303,6 +303,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ev-time{font-weight:300;font-size:clamp(2.7rem,10vw,3.4rem);line-height:1;font-variant-numeric:lining-nums;color:var(--text)}
 .ev-time small{font-size:.36em;font-style:italic;margin-left:.25em;color:var(--text-soft)}
 .ev-time.range{font-size:clamp(1.9rem,7.2vw,2.8rem)}
+.ev .ev-date{margin-top:8px;letter-spacing:.1em;font-size:.82rem}
 .ev h3{font-family:var(--f-script);font-weight:400;font-size:clamp(2.7rem,10vw,3.3rem);line-height:1.15;color:var(--accent);margin-top:8px}
 .ev p{max-width:24ch;margin:4px auto 0;color:var(--text-soft)}
 .ev-where{margin-top:44px;font-style:italic;color:var(--text-soft)}

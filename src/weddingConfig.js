@@ -34,8 +34,8 @@ export const WEDDING = {
 
   // celebration events
   events: [
-    { icon: "🌼", name: "Haldi", when: "Fri · 4 December · 7:00 PM - 10:00 PM", where: "Garden of Marigolds", note: "Wear what turmeric won't ruin!" },
-    { icon: "💍", name: "The Wedding", when: "Sat · 5 December · 12:17 PM", where: "Vivah Mandap", note: "Varmala, pheras & lunch" },
+    { icon: "🌼", name: "Haldi", when: "Fri · 4 December 2026 · 7:00 PM - 10:00 PM", where: "Garden of Marigolds", note: "Wear what turmeric won't ruin!" },
+    { icon: "💍", name: "The Wedding", when: "Sat · 5 December 2026 · 12:17 PM", where: "Vivah Mandap", note: "Varmala, pheras & lunch" },
   ],
 
   info: [

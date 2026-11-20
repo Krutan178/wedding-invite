@@ -383,7 +383,7 @@ function Events() {
       <p className="sec-sub" data-reveal style={{ "--d": ".1s" }}>{WEDDING.dateLong}</p>
       <div className="events-grid">
         {WEDDING.events.map((ev, i) => {
-          const rawTime = ev.when.split(" · ").pop().trim();
+          const [weekday, evDate, rawTime] = ev.when.split(" · ").map((s) => s.trim());
           const [start, end] = rawTime.split(/\s+-\s+/);
           const startParts = start.split(" ");
           const clock = end ? `${startParts[0]} – ${end}` : startParts[0];
@@ -396,6 +396,7 @@ function Events() {
               {i > 0 && <span className="ev-join" aria-hidden="true" />}
               <EventIcon kind={kind} />
               <p className={`ev-time${meridiem ? "" : " range"}`}>{clock}{meridiem && <small>{meridiem}</small>}</p>
+              <p className="ev-date">{weekday} · {evDate}</p>
               <h3>{ev.name}</h3>
               <p>{ev.note} · {ev.where}</p>
             </article>
