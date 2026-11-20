@@ -10,32 +10,33 @@ import { initDemo } from "./lib/demo";
 const BASE = import.meta.env.BASE_URL || "/";
 const asset = (file) => `${BASE}assets/${file}`;
 
-/* our six real/placeholder photos, mapped into the demo's image slots */
+/* real photos from weddingConfig, mapped into the demo's image slots */
 const shots = WEDDING.photos.map((p) =>
   p.src.startsWith("assets/") ? asset(p.src.slice(7)) : p.src
 );
-const hero = shots[0];
-const albumImages = [
-  shots[0], shots[1], shots[2], shots[3], shots[4],
-  shots[5], shots[0], shots[2], shots[4], shots[1],
-];
-const albumCaptions = [
-  ...WEDDING.photos.map((p) => p.caption),
+const shot = (i) => shots[i % shots.length];
+const hero = shot(0);
+const extraCaptions = [
   "hand in hand, always",
   "our favourite kind of day",
   "and the best is yet to come",
   "with you, everywhere",
 ];
+const albumImages = Array.from({ length: 10 }, (_, i) => shot(i));
+const albumCaptions = Array.from(
+  { length: 10 },
+  (_, i) => WEDDING.photos[i]?.caption ||
+    extraCaptions[(i - WEDDING.photos.length) % extraCaptions.length]
+);
 const IMG = {
   stamp: hero,
   hero,
   now: hero,
-  then: shots[1],
+  then: shot(1),
   ...Object.fromEntries(albumImages.map((src, i) => [`a${i + 1}`, src])),
   band: hero,
   final: hero,
-  c0: hero, c1: shots[1], c2: shots[2], c3: shots[3],
-  c4: shots[4], c5: shots[5], c6: hero, c7: shots[2],
+  ...Object.fromEntries(Array.from({ length: 8 }, (_, i) => [`c${i}`, shot(i)])),
 };
 
 /* date pieces */
@@ -263,7 +264,7 @@ function Story() {
       <p className="sec-sub" data-reveal style={{ "--d": ".1s" }}>Long before the big day, this is where it all began. Drag the line to see how it turned out.</p>
       <div className="compare" id="compare" data-reveal style={{ "--d": ".15s" }}>
         <img className="cmp-now" data-img="now" src={hero} alt={`${names} today`} draggable="false" />
-        <img className="cmp-then" data-img="then" src={shots[1]} alt="A memory from when we first began" draggable="false" />
+        <img className="cmp-then" data-img="then" src={shot(1)} alt="A memory from when we first began" draggable="false" />
         <span className="cmp-tag tag-then">Then</span><span className="cmp-tag tag-now">Now</span>
         <div className="cmp-handle" id="cmpHandle" role="slider" tabIndex={0} aria-label="Compare then and now" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>

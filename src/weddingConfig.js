@@ -45,12 +45,10 @@ export const WEDDING = {
   ],
 
   photos: [
-    { src: "assets/couple.jpg", caption: "A new chapter began — 16·08·2026", tilt: "left", polaroid: true },
-    { src: "assets/photo2.svg", caption: "the yes that mattered", tilt: "right" },
-    { src: "assets/photo3.svg", caption: "family & forever", tilt: "left" },
-    { src: "assets/photo4.svg", caption: "every festival, together", tilt: "right" },
-    { src: "assets/photo5.svg", caption: "sunsets & chai", tilt: "left" },
-    { src: "assets/photo6.svg", caption: "many more to come", tilt: "right" },
+    { src: "assets/photo4.jpg", caption: "A new chapter began — 16·08·2026", tilt: "left", polaroid: true },
+    { src: "assets/photo1.jpg", caption: "the yes that mattered", tilt: "right" },
+    { src: "assets/photo2.jpg", caption: "family & forever", tilt: "left" },
+    { src: "assets/photo3.jpg", caption: "every festival, together", tilt: "right" },
   ],
 };
 
