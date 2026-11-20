@@ -8,11 +8,11 @@ export const WEDDING = {
   hashtag: "#RushikeshWedsAnkita",
 
   // countdown + calendar target — Saturday, 5 December 2026
-  dateISO: "2026-12-05T10:30:00+05:30",
+  dateISO: "2026-12-05T12:17:00+05:30",
   dateLong: "Saturday, 5 December 2026",
   dateDay: "Saturday",
   dateMain: "5 December 2026",
-  timeLong: "10:30 in the morning",
+  timeLong: "12:17 in the afternoon",
 
   venue: {
     name: "Sakhubai Bhaskar Mangal Karyalay",
@@ -34,10 +34,8 @@ export const WEDDING = {
 
   // celebration events
   events: [
-    { icon: "🌿", name: "Mehendi", when: "Thu · 3 December · 4:00 PM", where: "The Palace Courtyard", note: "Henna, folk songs & chai" },
-    { icon: "🌼", name: "Haldi", when: "Fri · 4 December · 10:00 AM", where: "Garden of Marigolds", note: "Wear what turmeric won't ruin!" },
-    { icon: "🎶", name: "Sangeet", when: "Fri · 4 December · 7:00 PM", where: "Jashn Hall", note: "Dance like no one is filming" },
-    { icon: "💍", name: "The Wedding", when: "Sat · 5 December · 10:30 AM", where: "Vivah Mandap", note: "Varmala at 11:30 · lunch after" },
+    { icon: "🌼", name: "Haldi", when: "Fri · 4 December · 7:00 PM - 10:00 PM", where: "Garden of Marigolds", note: "Wear what turmeric won't ruin!" },
+    { icon: "💍", name: "The Wedding", when: "Sat · 5 December · 12:17 PM", where: "Vivah Mandap", note: "Varmala, pheras & lunch" },
   ],
 
   info: [

@@ -377,9 +377,13 @@ function Events() {
       <p className="sec-sub" data-reveal style={{ "--d": ".1s" }}>{WEDDING.dateLong}</p>
       <div className="events-grid">
         {WEDDING.events.map((ev, i) => {
-          const timeParts = ev.when.split(" · ").pop().trim().split(" ");
-          const clock = timeParts[0];
-          const meridiem = timeParts.slice(1).join(" ");
+          const rawTime = ev.when.split(" · ").pop().trim();
+          const [start, end] = rawTime.split(/\s+-\s+/);
+          const startParts = start.split(" ");
+          const clock = startParts[0];
+          const meridiem = end
+            ? `${startParts.slice(1).join(" ")} – ${end}`
+            : startParts.slice(1).join(" ");
           const kind = /mehendi/i.test(ev.name) ? "mehendi"
             : /haldi/i.test(ev.name) ? "haldi"
             : /sangeet/i.test(ev.name) ? "sangeet" : "wedding";
