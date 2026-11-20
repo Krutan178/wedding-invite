@@ -49,6 +49,10 @@ export const WEDDING = {
     { src: "assets/photo1.jpg", caption: "the yes that mattered", tilt: "right" },
     { src: "assets/photo2.jpg", caption: "family & forever", tilt: "left" },
     { src: "assets/photo3.jpg", caption: "every festival, together", tilt: "right" },
+    { src: "assets/photo5.jpg", caption: "sunsets & chai", tilt: "left" },
+    { src: "assets/photo6.jpg", caption: "many more to come", tilt: "right" },
+    { src: "assets/photo7.jpg", caption: "hand in hand, always", tilt: "left" },
+    { src: "assets/photo8.jpg", caption: "our favourite kind of day", tilt: "right" },
   ],
 };
 
