@@ -12,6 +12,7 @@ import ScratchSection from "./components/ScratchSection";
 import Venue from "./components/Venue";
 import Info from "./components/Info";
 import CountdownRsvp from "./components/CountdownRsvp";
+import Marquee from "./components/Marquee";
 import Footer from "./components/Footer";
 import FxLayer from "./components/FxLayer";
 import ScrollProgress from "./components/ScrollProgress";
@@ -55,6 +56,7 @@ export default function App() {
         <CountdownRsvp />
       </main>
 
+      <Marquee />
       <Footer />
     </>
   );
