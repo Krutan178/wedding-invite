@@ -34,7 +34,7 @@ const IMG = {
   now: hero,
   then: shot(1),
   ...Object.fromEntries(albumImages.map((src, i) => [`a${i + 1}`, src])),
-  band: hero,
+  band: shot(7),
   final: hero,
   ...Object.fromEntries(Array.from({ length: 8 }, (_, i) => [`c${i}`, shot(i)])),
 };
@@ -335,7 +335,7 @@ function Band() {
   return (
     <section className="band" id="uphill" aria-label="Hand in hand">
       <div className="band-media" id="bandMedia">
-        <img data-img="band" src={hero} alt="Hand in hand" draggable="false" />
+        <img data-img="band" src={IMG.band} alt="Hand in hand" draggable="false" />
         <span className="band-sun" id="bandSun" />
       </div>
       <p className="band-top wipe" data-reveal-wipe>Hand in hand,</p>
