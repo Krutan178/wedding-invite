@@ -380,10 +380,8 @@ function Events() {
           const rawTime = ev.when.split(" · ").pop().trim();
           const [start, end] = rawTime.split(/\s+-\s+/);
           const startParts = start.split(" ");
-          const clock = startParts[0];
-          const meridiem = end
-            ? `${startParts.slice(1).join(" ")} – ${end}`
-            : startParts.slice(1).join(" ");
+          const clock = end ? `${startParts[0]} – ${end}` : startParts[0];
+          const meridiem = end ? "" : startParts.slice(1).join(" ");
           const kind = /mehendi/i.test(ev.name) ? "mehendi"
             : /haldi/i.test(ev.name) ? "haldi"
             : /sangeet/i.test(ev.name) ? "sangeet" : "wedding";
@@ -391,7 +389,7 @@ function Events() {
             <article className="ev" data-reveal key={ev.name} style={{ "--d": `${i * 0.05}s` }}>
               {i > 0 && <span className="ev-join" aria-hidden="true" />}
               <EventIcon kind={kind} />
-              <p className="ev-time">{clock}<small>{meridiem}</small></p>
+              <p className={`ev-time${meridiem ? "" : " range"}`}>{clock}{meridiem && <small>{meridiem}</small>}</p>
               <h3>{ev.name}</h3>
               <p>{ev.note} · {ev.where}</p>
             </article>
