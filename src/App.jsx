@@ -35,7 +35,7 @@ const IMG = {
   then: shot(8),
   ...Object.fromEntries(albumImages.map((src, i) => [`a${i + 1}`, src])),
   band: shot(7),
-  final: hero,
+  final: shot(4),
   ...Object.fromEntries(Array.from({ length: 8 }, (_, i) => [`c${i}`, shot(i)])),
 };
 
@@ -469,7 +469,7 @@ function Finale() {
           <defs><path id="circ" d="M150 150m-130 0a130 130 0 1 1 260 0a130 130 0 1 1-260 0" /></defs>
           <text><textPath href="#circ" textLength="808" lengthAdjust="spacing">{ringText}</textPath></text>
         </svg>
-        <div className="ring-photo"><img data-img="final" src={hero} alt={`${names} together`} draggable="false" /></div>
+        <div className="ring-photo"><img data-img="final" src={IMG.final} alt={`${names} together`} draggable="false" /></div>
       </div>
       <h2 data-reveal>We can’t wait to celebrate with you</h2>
       <p className="finale-sub" data-reveal style={{ "--d": ".1s" }}>Your presence is the only blessing we wish for.</p>
