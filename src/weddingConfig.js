@@ -45,7 +45,7 @@ export const WEDDING = {
   ],
 
   photos: [
-    { src: "assets/photo4.jpg", caption: "A new chapter began — 16·08·2026", tilt: "left", polaroid: true },
+    { src: "assets/photo4.jpg", caption: "Love grows where it is tended.", tilt: "left", polaroid: true },
     { src: "assets/photo1.jpg", caption: "the yes that mattered", tilt: "right" },
     { src: "assets/photo2.jpg", caption: "family & forever", tilt: "left" },
     { src: "assets/photo3.jpg", caption: "every festival, together", tilt: "right" },
