@@ -4,7 +4,7 @@
    ============================================================ */
 import { useEffect, useRef } from "react";
 import { WEDDING, mapsUrl } from "./weddingConfig";
-import { guest, track } from "./lib/tracking";
+import { track } from "./lib/tracking";
 import { initDemo } from "./lib/demo";
 
 const BASE = import.meta.env.BASE_URL || "/";
@@ -130,7 +130,7 @@ function Intro() {
                 </svg>
                 <span className="addr">
                   <span className="addr-to">To,</span>
-                  <span className="addr-name">{guest || "Someone Special"}</span>
+                  <span className="addr-name">you</span>
                   <span className="addr-rule" />
                   <span className="addr-from">kindly open with a smile</span>
                 </span>

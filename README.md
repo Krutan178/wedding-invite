@@ -67,7 +67,7 @@ public/
 
 ## Tracking & personal links
 
-- `?guest=Rahul+Family&utm_source=whatsapp` → personalized envelope + tracked events
+- `?guest=you&utm_source=whatsapp` → tracked events
 - `?_admin=1` → live click-history panel, CSV export
 - `link-builder.html` → generate/bulk-create personalized links
 - Full setup (Google Sheets webhook + GA4): see `tracking-setup.md`
