@@ -23,11 +23,15 @@ const extraCaptions = [
   "with you, everywhere",
 ];
 /* excluded from the album because they are used in other sections */
-const albumIndices = [0, 1, 2, 3, 4, 5, 6, 9];
+const albumIndices = [9, 1, 2, 3, 4, 5, 6, 0];
 const albumImages = albumIndices.map((i) => shot(i));
-const albumCaptions = albumIndices.map(
-  (i) => WEDDING.photos[i]?.caption ||
-    extraCaptions[(i - WEDDING.photos.length) % extraCaptions.length]
+const albumCaptions = albumIndices.map((i, slot) =>
+  slot === 0
+    ? WEDDING.photos[0].caption
+    : slot === albumIndices.length - 1
+      ? WEDDING.photos[9].caption
+      : WEDDING.photos[i]?.caption ||
+        extraCaptions[(i - WEDDING.photos.length) % extraCaptions.length]
 );
 const IMG = {
   stamp: hero,
