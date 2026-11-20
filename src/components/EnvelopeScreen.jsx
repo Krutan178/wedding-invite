@@ -2,9 +2,11 @@ import { useState } from "react";
 import { guest, track } from "../lib/tracking";
 import { WEDDING } from "../weddingConfig";
 
-/** Premium 3D double-door reveal (inspired by the royal-grace demo) */
+/** A sealed letter that opens into the invitation (demo-invitation style) */
 export default function EnvelopeScreen({ opened, onOpen }) {
   const [opening, setOpening] = useState(false);
+  const [y, m, d] = WEDDING.dateISO.slice(0, 10).split("-");
+  const dateStamp = `${d} · ${m} · ${y}`;
 
   /* personalized browser tab title */
   document.title = guest
@@ -13,9 +15,9 @@ export default function EnvelopeScreen({ opened, onOpen }) {
 
   const handleOpen = () => {
     if (opening) return;
-    track("invite_opened", { style: "doors", msSinceLoad: Math.round(performance.now()) });
+    track("invite_opened", { style: "envelope", msSinceLoad: Math.round(performance.now()) });
     setOpening(true);
-    setTimeout(onOpen, 1600); // doors swing, light bursts, then the screen fades
+    setTimeout(onOpen, 1750); // flap lifts, letter rises, then the screen fades
   };
 
   return (
@@ -27,36 +29,50 @@ export default function EnvelopeScreen({ opened, onOpen }) {
       }}
       aria-label="Open invitation"
     >
-      <div className="doors-scene">
-        <div className="doors-glow" aria-hidden="true" />
-        <div className="door door-left" aria-hidden="true">
-          <span className="door-panel-line" />
-          <span className="door-panel-line line-2" />
-          <span className="door-crest">✦</span>
-          <span className="door-handle" />
-        </div>
-        <div className="door door-right" aria-hidden="true">
-          <span className="door-panel-line" />
-          <span className="door-panel-line line-2" />
-          <span className="door-crest">✦</span>
-          <span className="door-handle" />
-        </div>
-      </div>
-
-      <div className="doors-overlay">
-        <p className="doors-kicker">The Wedding Of</p>
+      <div className="env-head">
+        <p className="doors-kicker">✦ For you, a letter has arrived ✦</p>
         <p className="doors-names">
           {WEDDING.groom} <em>&amp;</em> {WEDDING.bride}
         </p>
-        {guest && (
-          <p className="env-dear">
-            For <span>{guest}</span>,
-          </p>
-        )}
-        <p className="doors-sub">You are cordially invited</p>
-        <button className="open-btn" type="button" onClick={handleOpen}>
-          <span className="open-btn-inner">Open&nbsp;Invitation</span>
-        </button>
+        <p className="env-dear">
+          {guest ? (
+            <>To <span>{guest}</span>,</>
+          ) : (
+            "To our dearest,"
+          )}
+        </p>
+        <p className="doors-sub">kindly open with a smile</p>
+      </div>
+
+      <button
+        className="envelope"
+        type="button"
+        onClick={handleOpen}
+        aria-label="Open the invitation letter"
+      >
+        <span className="env-back" aria-hidden="true" />
+
+        <span className="env-letter" aria-hidden="true">
+          <span className="env-letter-mono">
+            R<em>&amp;</em>A
+          </span>
+          <span className="env-letter-rule" />
+          <span className="env-letter-script">save the date</span>
+          <span className="env-letter-date">{dateStamp}</span>
+        </span>
+
+        <span className="env-front" aria-hidden="true" />
+        <span className="env-flap" aria-hidden="true" />
+        <span className="env-seal" aria-hidden="true">
+          R<em>&amp;</em>A
+        </span>
+      </button>
+
+      <div className="env-foot">
+        <span className="doors-sub env-tap">
+          <span className="env-tap-dot" aria-hidden="true" />
+          Tap the envelope to open
+        </span>
       </div>
     </div>
   );
