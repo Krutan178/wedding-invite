@@ -32,7 +32,7 @@ const IMG = {
   stamp: hero,
   hero,
   now: hero,
-  then: shot(1),
+  then: shot(8),
   ...Object.fromEntries(albumImages.map((src, i) => [`a${i + 1}`, src])),
   band: shot(7),
   final: hero,
@@ -263,8 +263,8 @@ function Story() {
       <h2 className="sec-title" data-reveal>Our story, so far</h2>
       <p className="sec-sub" data-reveal style={{ "--d": ".1s" }}>Long before the big day, this is where it all began. Drag the line to see how it turned out.</p>
       <div className="compare" id="compare" data-reveal style={{ "--d": ".15s" }}>
-        <img className="cmp-now" data-img="now" src={hero} alt={`${names} today`} draggable="false" />
-        <img className="cmp-then" data-img="then" src={shot(1)} alt="A memory from when we first began" draggable="false" />
+        <img className="cmp-now" data-img="now" src={IMG.now} alt={`${names} today`} draggable="false" />
+        <img className="cmp-then" data-img="then" src={IMG.then} alt="A memory from when we first began" draggable="false" />
         <span className="cmp-tag tag-then">Then</span><span className="cmp-tag tag-now">Now</span>
         <div className="cmp-handle" id="cmpHandle" role="slider" tabIndex={0} aria-label="Compare then and now" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>
