@@ -22,10 +22,11 @@ const extraCaptions = [
   "and the best is yet to come",
   "with you, everywhere",
 ];
-const albumImages = Array.from({ length: 10 }, (_, i) => shot(i));
-const albumCaptions = Array.from(
-  { length: 10 },
-  (_, i) => WEDDING.photos[i]?.caption ||
+/* excluded from the album because they are used in other sections */
+const albumIndices = [0, 1, 2, 3, 4, 5, 6, 9];
+const albumImages = albumIndices.map((i) => shot(i));
+const albumCaptions = albumIndices.map(
+  (i) => WEDDING.photos[i]?.caption ||
     extraCaptions[(i - WEDDING.photos.length) % extraCaptions.length]
 );
 const IMG = {
