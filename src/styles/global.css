@@ -112,9 +112,11 @@ button, .gold-btn { touch-action: manipulation; user-select: none; -webkit-user-
 
 /* ---------- the sealed letter ---------- */
 .envelope {
+  --ew: min(78vw, 372px, 44vh);
   position: relative;
   isolation: isolate;
-  width: min(78vw, 372px, 44vh);
+  width: var(--ew);
+  height: calc(var(--ew) / 1.52);
   aspect-ratio: 1.52;
   padding: 0;
   border: 0;
