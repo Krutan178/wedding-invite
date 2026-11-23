@@ -293,7 +293,7 @@ $('#uphill').addEventListener('revealed',()=>$$('[data-reveal-wipe]').forEach(e=
     g.strokeStyle='rgba(90,55,15,.35)';g.lineWidth=1;g.beginPath();g.roundRect?g.roundRect(11,11,w-22,h-22,11):g.rect(11,11,w-22,h-22);g.stroke();
     g.fillStyle='rgba(84,50,12,.78)';g.textAlign='center';g.textBaseline='middle';
     g.font=`${Math.round(h*.24)}px "Pinyon Script","Great Vibes",cursive`;g.fillText('Our big day',w/2,h*.43);
-    g.font=`italic 500 ${Math.round(h*.105)}px "Cormorant Garamond",Georgia,serif`;g.fillText('scratch it',w/2,h*.68);}
+    g.font=`700 ${Math.round(h*.15)}px "Cormorant Garamond",Georgia,serif`;g.fillStyle='rgba(58,32,4,.96)';g.shadowColor='rgba(255,246,216,.65)';g.shadowBlur=5;g.fillText('scratch it',w/2,h*.7);g.shadowBlur=0;}
   paint();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(!moves&&!done)paint();});
   let lastW=0;new ResizeObserver(()=>{const W=box.getBoundingClientRect().width;if(Math.abs(W-lastW)>2&&!done&&!moves){lastW=W;paint();}}).observe(box);
   const pt=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};};
